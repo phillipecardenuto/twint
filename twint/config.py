@@ -85,3 +85,7 @@ class Config:
     Bearer_token: str = None
     Guest_token: str = None
     deleted: list = None
+    MongoDB: object = None
+    MongoDBurl: object = None
+    MongoDBdb: object = None
+    MongoDBcollection: object = None

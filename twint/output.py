@@ -150,7 +150,11 @@ async def checkData(tweet, config, conn):
         if config.Elasticsearch:
             logme.debug(__name__ + ':checkData:Elasticsearch')
             elasticsearch.Tweet(tweet, config)
+            
         _output(tweet, output, config)
+        
+        if config.MongoDB:
+            mongodb.Tweet(tweet, config)
     # else:
     #     logme.critical(__name__+':checkData:copyrightedTweet')
 
