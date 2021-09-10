@@ -6,7 +6,7 @@ import os
 # Package meta-data
 NAME = 'twint'
 DESCRIPTION = 'An advanced Twitter scraping & OSINT tool.'
-URL = 'https://github.com/twintproject/twint'
+URL = 'https://github.com/phillipecardenuto/twint'
 EMAIL = 'codyzacharias@pm.me'
 AUTHOR = 'Cody Zacharias'
 REQUIRES_PYTHON = '>=3.6.0'
