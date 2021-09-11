@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from datetime import datetime
+from dateutil import parser
 
 from geopy.geocoders import Nominatim
 
@@ -24,8 +25,10 @@ def getLocation(place, **options):
 def Tweet(Tweet, config):
     global _index_tweet_status
     global _is_near_def
-    date_obj = datetime.strptime(Tweet.datetime, "%Y-%m-%d %H:%M:%S %Z")
-
+    #date_obj = datetime.strptime(Tweet.datetime, "%Y-%m-%d %H:%M:%S %Z")
+    date_obj = parser.parse(Tweet.datetime)
+    Tweet.datetime = datetime.strftime(date_obj, '%Y-%m-%d %H:%M:%S %Z').strip()
+    
     actions = []
 
     try:
