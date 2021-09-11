@@ -3,7 +3,7 @@ from datetime import datetime
 from . import format, get
 from .tweet import Tweet
 from .user import User
-from .storage import db, elasticsearch, write, panda
+from .storage import db, elasticsearch, write, panda, mongodb
 
 import logging as logme
 
