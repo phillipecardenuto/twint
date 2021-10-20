@@ -28,7 +28,7 @@ def Tweet(Tweet, config):
     #date_obj = datetime.strptime(Tweet.datetime, "%Y-%m-%d %H:%M:%S %Z")
     date_obj = parser.parse(Tweet.datetime)
     Tweet.datetime = datetime.strftime(date_obj, '%Y-%m-%d %H:%M:%S %Z').strip()
-    
+
     actions = []
 
     try:
@@ -105,10 +105,11 @@ def Tweet(Tweet, config):
             _is_near_def = getLocation(__near + __geo, near=True)
         if _near:
             j_data["_source"].update({"geo_near": _near})
-    if Tweet.place:
-        _t_place = getLocation(Tweet.place)
-        if _t_place:
-            j_data["_source"].update({"geo_tweet": getLocation(Tweet.place)})
+    # getLocation has bug, removing it until it is fixed
+    #if Tweet.place:
+    #    _t_place = getLocation(Tweet.place)
+    #    if _t_place:
+    #        j_data["_source"].update({"geo_tweet": getLocation(Tweet.place)})
     if Tweet.source:
         j_data["_source"].update({"source": Tweet.Source})
     if config.Translate:
