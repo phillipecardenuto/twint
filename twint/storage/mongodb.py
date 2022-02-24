@@ -122,5 +122,5 @@ def Tweet(Tweet, config):
     client = MongoClient(config.MongoDBurl)
     db = client[config.MongoDBdb]
     collection = db[config.MongoDBcollection]
-    collection.update({'_id':j_data['_id']}, j_data, upsert=True)
+    collection.replace_one({'_id':j_data['_id']}, j_data, upsert=True)
     client.close()
